@@ -2,7 +2,9 @@ if __package__:
     from .startup import *
 else:
     from startup import *
-    
+
+# import pandas as pd
+
 class Program():
     """ Abstract class that processes command line arguments as files. """
 
@@ -13,4 +15,4 @@ class Program():
                        variables, and command line arguments.
         """
         log.info(f"Initializing {self.__class__.__name__} class...")
-        
+

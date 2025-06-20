@@ -1,5 +1,7 @@
 #!/bin/bash
 
+PYTHON_INTERPRETER="$HOME/python-3.13.2/bin/python3.13"
+
 # Function to check for the presence of -d or --debug in the arguments
 contains_debug_flag() {
     for arg in "$@"; do
@@ -82,14 +84,14 @@ if [ -d "$STEM" ]; then
         if [ -f "$STEM/__main__.py" ]; then
             # Run the directory as a module
             log "Running as module: python3 $PYTHON_OPTS -m $STEM $@"
-            if ! python3 $PYTHON_OPTS -m "$STEM" "$@"; then
+            if ! $PYTHON_INTERPRETER $PYTHON_OPTS -m "$STEM" "$@"; then
                 echo "Python execution failed with status $?"
                 exit 1
             fi
         elif [ -f "$STEM/__init__.py" ]; then
             # Attempt to import the module
             log "Importing module: $STEM"
-            if ! python3 $PYTHON_OPTS -c "import $STEM"; then
+            if ! $PYTHON_INTERPRETER $PYTHON_OPTS -c "import $STEM"; then
                 echo "Python import failed with status $?"
                 exit 1
             fi
@@ -98,7 +100,7 @@ if [ -d "$STEM" ]; then
         # Run the script inside the directory
         if [ -f "$STEM/$STEM.py" ]; then
             log "Running script: python3 $PYTHON_OPTS $STEM/$STEM.py $@"
-            if ! python3 $PYTHON_OPTS "$STEM/$STEM.py" "$@"; then
+            if ! $PYTHON_INTERPRETER $PYTHON_OPTS "$STEM/$STEM.py" "$@"; then
                 echo "Python script execution failed with status $?"
                 exit 1
             fi

@@ -105,6 +105,9 @@ TESTING = ARGS.testing
 #     print("Checking for log file...")
 #     print(f'{ARGS.log=}')
 
+if VERBOSE:
+    print(f"Python executable: {sys.executable}")
+
 LOGFILE = ARGS.log
 if not LOGFILE:
     LOGFILE = os.getenv('logfile')
