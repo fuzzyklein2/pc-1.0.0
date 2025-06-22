@@ -60,8 +60,11 @@ class Driver(Cmd, Program):
 
     def default(self, line):
         """Called when the input command does not match any do_ methods."""
-        print("Ready for the next hand.")
-        # print(line)
-        
+        RUNNING = True
+        while(RUNNING):
+            print("Ready for the next hand.")
+            s = input()
+            if s.lower() in {'done',}:
+                RUNNING = False
         return None
     
