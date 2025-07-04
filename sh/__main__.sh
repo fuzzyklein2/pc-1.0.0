@@ -68,6 +68,7 @@ mkdir -p "$(dirname "$LOGFILE")"
 
 # Create the file if it does not exist
 touch "$LOGFILE"
+echo '' > "$LOGFILE"
 
 # Enable logging to file if verbose mode is on
 if [ $VERBOSE -eq 1 ]; then

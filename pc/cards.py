@@ -14,18 +14,51 @@
     The __str__ and __repr__ functions should be overrideen.
     
 """
-class Card(object):
-    ACE = 'A'
-    KING = 'K'
-    QUEEN = 'Q'
-    JACK = 'J'
-    TEN = 'T'
-    SUITS = 'shdc'
-    RANKS = '23456789TJQKA'
+ACE = 'A'
+KING = 'K'
+QUEEN = 'Q'
+JACK = 'J'
+TEN = 'T'
+SUITS = '♣♦♥♠'
+ASCII_SUITS = 'cdhs'
+RANKS = '23456789TJQKA'
+VALID_CHARS = RANKS + ASCII_SUITS + 'tjqka'
 
-    def __init__(rank, suit):
-        super().__init__()
-        self.rank = rank.upper() if rank in RANKS else 0
-        self.suit = suit.lower() if suit in SUITS else 0
+PICTS = dict()
+for i in range(3):
+    PICTS[ASCII_SUITS[i]] = SUITS[i]
 
-    
+class Card(eval7.Card):
+    def __init__(self, /, *args, **kwargs):
+        """ c must be a string with 2 chars.
+            The first must be an uppercase letter if it is a letter.
+            The 2nd must be lowercase, representing the suit of the card.
+        """
+        args = (args[0][0].upper() + args[0][1].lower())
+        eval7.Card.__init__(*args, **kwargs)
+
+        self._ascii_rank = RANKS[self.rank]
+        self._ascii_suit = ASCII_SUITS[self.suit]
+        self._pict = SUITS[self.suit]
+
+    def __str__(self):
+        return self._ascii_rank + self._pict
+
+    @property
+    def ascii_rank(self):
+        return self._ascii_rank
+        
+    @ascii_rank.setter
+    def ascii_rank(self, value):
+        self.ascii_rank = value
+        
+    @property
+    def ascii_suit(self):
+        return self._ascii_suit
+        
+    @ascii_suit.setter
+    def ascii_suit(self, value):
+        self._ascii_suit = value
+
+    def output(self):
+        return self.rank + self.pict
