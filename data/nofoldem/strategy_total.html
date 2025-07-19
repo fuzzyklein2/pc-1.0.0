@@ -1,0 +1,68 @@
+<html>
+<head>
+<title>Apu's Folding Strategy</title>
+</head>
+
+<body>
+<center>
+<h1>Apu's Too-Good-To-Be-True Pre-Flop Folding Strategy</h1>
+Based on 4,000,000,000 runs<br>
+Use at your own risk <p>
+</center>
+		These tables tell you when to fold cards that have a lesser than average chance of winning (including ties). If the blinds are high, you might want to play tighter.
+		<p>
+		In an n-player game, with hole cards XY (where Y is the higher card), Look at
+		the column for Y and the row for n. For example, let's say you're in a 5 player game. If your hole cards
+		are suited, refer to the first table. If your highest card is a 9, then the table tells you that your lower card must be at least
+		a 5. If your hole cards are unsuited, refer to the second table. If your highest card is a T (ten), then your lowest card must
+		be at least a 7. A "*" means that all low cards are playable, and is equivalent to 2. For example, always play hole cards with an A. A "-" means you should fold. For
+		example, fold suited cards with high card 3 if there are 8 or fewer players.
+<p>
+<center>
+		<h3>Suited, low card for specified high card</h3>
+<pre>
+\	A	K	Q	J	T	9	8	7	6	5	4	3	
+
+10	*	*	*	*	*	*	*	3	3	*	*	*	
+9	*	*	*	*	*	*	3	3	3	*	*	*	
+8	*	*	*	*	*	3	4	3	3	*	*	-	
+7	*	*	*	*	*	4	4	4	4	3	3	-	
+6	*	*	*	*	3	5	5	4	4	3	-	-	
+5	*	*	*	*	4	5	5	5	5	4	-	-	
+4	*	*	*	3	5	5	5	5	5	-	-	-	
+3	*	*	*	3	5	6	6	6	-	-	-	-	
+2	*	*	*	*	5	6	7	-	-	-	-	-	
+</pre>
+
+		<h3>Unsuited, low card for specified high card</h3>
+<pre>
+\	A	K	Q	J	T	9	8	7	6	5	4	3	2
+
+10	*	6	8	8	7	7	7	7	6	5	4	3	2
+9	*	6	8	8	7	7	7	7	6	5	4	3	2
+8	*	6	7	8	7	7	7	7	6	5	4	3	2
+7	*	4	7	7	7	7	7	7	6	5	4	3	2
+6	*	4	7	7	7	7	7	7	6	5	4	3	-
+5	*	4	7	7	7	7	7	7	6	5	4	-	-
+4	*	3	6	7	7	7	7	7	6	5	4	-	-
+3	*	*	5	7	7	8	8	7	6	5	4	3	-
+2	*	*	3	6	7	8	8	7	6	5	4	3	2
+
+</pre>
+</center>
+
+So in summary, here's a reasonable folding strategy in my opinion for low blinds (you have to tighten up depending on the blinds and your stack):<p>
+Unsuited - Stay in if both cards are 7 or better, although 10 or better is preferable. Play all pairs<br>
+Suited - Stay in if you have any card that is a 10 or better, otherwise if the cards are "close enough" (the lower the cards, the closer they need to be)<br>
+Play lame hands once in a while or if blinds are really low
+
+<p>
+
+<center>
+These statistics are &#xA9; <a href="../index.html">Apu Kapadia</a>, 2005
+</center>
+<br>
+<a href="index.html">Back Home</a>
+<br>
+</body>
+</html>

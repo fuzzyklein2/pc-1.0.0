@@ -1,0 +1,151 @@
+Type 'help' for a list of commands.
+Enter the maximum number of players at the table: 6
+Enter the number of players currently at the table: 4
+
+Ready for the hand: 7h tc
+0.1863
+
+Ready for the flop: jd kd 8d
+
+High Card
+
+High Card :  0.27752081406105455
+Pair :  0.4144310823311748
+Two Pair :  0.08233117483811286
+Three of a Kind :  0.013876040703052728
+Straight :  0.1702127659574468
+Flush :  0.041628122109158186
+Full House :  0.0
+Four of a Kind :  0.0
+
+Hero wins: 0.0848 (848 of 10000)
+Ties:      0.0425 (425 of 10000)
+Losses:    0.8727 (8727 of 10000)
+
+Ready for the turn: 3s
+
+High Card
+
+High Card :  0.5217391304347826
+Pair :  0.391304347826087
+Two Pair :  0.0
+Three of a Kind :  0.0
+Straight :  0.08695652173913043
+Flush :  0.0
+Full House :  0.0
+Four of a Kind :  0.0
+
+Hero wins: 0.0880 (880 of 10000)
+Ties:      0.0310 (310 of 10000)
+Losses:    0.8810 (8810 of 10000)
+
+Ready for the river: 6s
+
+High Card
+
+High Card :  1.0
+Pair :  0.0
+Two Pair :  0.0
+Three of a Kind :  0.0
+Straight :  0.0
+Flush :  0.0
+Full House :  0.0
+Four of a Kind :  0.0
+
+Hero wins: 0.0648 (648 of 10000)
+Ties:      0.0038 (38 of 10000)
+Losses:    0.9314 (9314 of 10000)
+
+Ready for the hand: 7c 5s
+0.0779
+
+Ready for the flop: td 9c 4s
+
+High Card
+
+High Card :  0.3700277520814061
+Pair :  0.4884366327474561
+Two Pair :  0.08325624421831637
+Three of a Kind :  0.013876040703052728
+Straight :  0.04440333024976873
+Flush :  0.0
+Full House :  0.0
+Four of a Kind :  0.0
+
+Hero wins: 0.0637 (637 of 10000)
+Ties:      0.0339 (339 of 10000)
+Losses:    0.9024 (9024 of 10000)
+
+Ready for the turn: done
+
+Ready for the hand: 9s ac
+0.2965
+
+Ready for the flop: 5s 5c 8h
+
+Pair
+
+High Card :  0.0
+Pair :  0.5180388529139686
+Two Pair :  0.37465309898242366
+Three of a Kind :  0.0666049953746531
+Straight :  0.014801110083256245
+Flush :  0.0
+Full House :  0.02497687326549491
+Four of a Kind :  0.0009250693802035153
+
+Hero wins: 0.1739 (1739 of 10000)
+Ties:      0.0530 (530 of 10000)
+Losses:    0.7731 (7731 of 10000)
+
+Ready for the turn: done
+
+Ready for the hand: remove 1
+Players currently at the table: 3
+
+Ready for the hand: 4s qh
+0.1559
+
+Ready for the flop: 5d 3c ah
+
+High Card
+
+High Card :  0.2960222016651249
+Pair :  0.42738205365402404
+Two Pair :  0.08325624421831637
+Three of a Kind :  0.013876040703052728
+Straight :  0.17946345975948197
+Flush :  0.0
+Full House :  0.0
+Four of a Kind :  0.0
+
+Hero wins: 0.1151 (1151 of 10000)
+Ties:      0.0507 (507 of 10000)
+Losses:    0.8342 (8342 of 10000)
+
+Ready for the turn: done
+
+Ready for the hand: 9c 9d
+0.35979999999999995
+
+Ready for the flop: 8s 4d 1c
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/fuzzy/GitHub/pc-1.0.0/pc/__main__.py", line 11, in <module>
+    Driver().run()
+    ~~~~~~~~~~~~^^
+  File "/home/fuzzy/GitHub/pc-1.0.0/pc/driver.py", line 43, in run
+    super().cmdloop()
+    ~~~~~~~~~~~~~~~^^
+  File "/home/fuzzy/python-3.13.2/lib/python3.13/cmd.py", line 146, in cmdloop
+    stop = self.onecmd(line)
+  File "/home/fuzzy/python-3.13.2/lib/python3.13/cmd.py", line 223, in onecmd
+    return self.default(line)
+           ~~~~~~~~~~~~^^^^^^
+  File "/home/fuzzy/GitHub/pc-1.0.0/pc/driver.py", line 114, in default
+    self.hand.append(Card(c))
+                     ~~~~^^^
+  File "eval7/cards.pyx", line 24, in eval7.cards.Card.__cinit__
+ValueError: tuple.index(x): x not in tuple
+Python execution failed with status 0

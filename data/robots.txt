@@ -1,0 +1,5 @@
+#
+# We disallow all the classes stuff since there can be a lot of old cruft here
+#
+User-agent: *
+Disallow: /classes/

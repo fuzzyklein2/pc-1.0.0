@@ -189,9 +189,6 @@ FOLLOW = ARGS.follow
 RECURSIVE = ARGS.recursive
 PROCESS_ALL = ARGS.all
 
-log.info("Loading probabilities data file...")
-PROBABILITIES = pd.read_pickle('data/probabilities.pkl')
-
 log.info(f'{FOLLOW=}\n{RECURSIVE=}\n{PROCESS_ALL=}')
 
 CWD = Path.cwd()
