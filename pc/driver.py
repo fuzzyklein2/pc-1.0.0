@@ -53,21 +53,23 @@ class Driver(Cmd, Program):
         self.prompt = f"Ready for {'the' if self.poker_table.status else 'a'} {PROMPTS[self.poker_table.status]}: "
 
     def do_done(self, line):
-        self.hand = Hand()
-        self.status = 0
         self.poker_table.reset()
         print()
-        self.prompt = f"Ready for the {PROMPTS[self.status]}: "
+        self.prompt = f"Ready for {'the' if self.poker_table.status else 'a'} {PROMPTS[self.poker_table.status]}: "
 
-    def revise(self):
-        self.poker_table.revise()
+    # def revise(self):
+        # self.poker_table.revise()
         
     def default(self, line):
         """Called when the input command does not match any do_ methods."""
         self.poker_table += line
+        if self.poker_table.status >= 4:
+            self.prompt = "Ready for input: "
+        else:
+            self.prompt = f"Ready for {'the' if self.poker_table.status else 'a'} {PROMPTS[self.poker_table.status]}: "
                     
-    def rank2key(self, n):
-        return RANKS.find(str(n))
+    # def rank2key(self, n):
+        # return RANKS.find(str(n))
 
     def do_remove(self, line):
         n = 1
@@ -75,7 +77,7 @@ class Driver(Cmd, Program):
             n = int(line)
         self.poker_table.remove(n)
         print(f"Players currently at the table: {self.poker_table.cur_num_players}")
-        self.revise()
+        self.poker_table.revise()
         print()
 
     def do_add(self, line):
@@ -84,7 +86,14 @@ class Driver(Cmd, Program):
             n = int(line)
         self.poker_table.add(n)
         print(f"Players currently at the table: {self.poker_table.cur_num_players}")
-        self.revise()
+        self.poker_table.revise()
         print()
 
+    def do_fold(self, line):
+        self.poker_table.fold(int(line))
     
+    def do_disc(self, line):
+        self.poker_table.disconnect(int(line))
+        
+    def do_conn(self, line):
+        self.poker_table.connect(int(line))

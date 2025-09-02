@@ -15,6 +15,7 @@
     
 """
 import eval7
+from rich import print as rprint
 
 if __package__:
     from .integers import Integer
@@ -33,9 +34,12 @@ VALID_CHARS = RANKS + ASCII_SUITS + 'tjqka'
 FOLD_CHARS = 'fF'
 VALID_RANK_CHARS = RANKS + 'tjqka'
 VALID_SUIT_CHARS = ASCII_SUITS + ASCII_SUITS.lower()
-PICTS = dict()
-for i in range(4):
-    PICTS[ASCII_SUITS[i]] = SUITS[i]
+
+PICTS = dict(zip(list(ASCII_SUITS), list(SUITS)))
+# for i in range(4):
+    # PICTS[ASCII_SUITS[i]] = SUITS[i]
+    
+BAD_INPUT_STR = "[red]ERROR[/]: Bad input!"
 
 class InputError(Exception):
     pass
@@ -51,7 +55,7 @@ class Card(eval7.Card):
         self._pict = SUITS[self.suit]
 
     def __str__(self):
-        return self._ascii_rank + self.ascii_suit
+        return self._ascii_rank + self.pict
 
     @property
     def ascii_rank(self):
@@ -87,9 +91,9 @@ class Card(eval7.Card):
         current_rank = None
         cards = list()
         s = ''.join(s.split())
-        print(s)
+        # print(s)
         for c in s:
-            print(c)
+            # print(c)
             if c in FOLD_CHARS:
                 num_folds += 1
             elif logical_index.is_even():
@@ -97,12 +101,12 @@ class Card(eval7.Card):
                     current_rank = c.upper()
                     logical_index += 1
                 else:
-                    raise InputError("ERROR: Bad input!")
+                    rprint(BAD_INPUT_STR)
             elif logical_index.is_odd():
                 if c in VALID_SUIT_CHARS:
                     cards.append(Card(current_rank + c.lower()))
                     current_rank = None
                     logical_index += 1
                 else:
-                    raise InputError("ERROR: Bad input!")
+                    rprint(BAD_INPUT_STR)
         return (cards, num_folds)

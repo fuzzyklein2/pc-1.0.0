@@ -1,6 +1,8 @@
 import eval7
 import random
 
+from rich import print as rp
+
 def simulate_win_probability(hero_hand_strs, board_strs, num_opponents, num_simulations=10000):
     hero_hand = [eval7.Card(card) for card in hero_hand_strs]
     board = [eval7.Card(card) for card in board_strs]
@@ -46,6 +48,13 @@ def simulate_win_probability(hero_hand_strs, board_strs, num_opponents, num_simu
             wins += 1
 
     total = num_simulations
-    print(f"Hero wins: {wins / total:.4f} ({wins} of {total})")
-    print(f"Ties:      {ties / total:.4f} ({ties} of {total})")
-    print(f"Losses:    {(total - wins - ties) / total:.4f} ({total - wins - ties} of {total})")
+    # print(f"Hero wins: {wins / total:.4f} ({wins} of {total})")
+    # print(f"Ties:      {ties / total:.4f} ({ties} of {total})")
+    # print(f"Losses:    {(total - wins - ties) / total:.4f} ({total - wins - ties} of {total})")
+
+    rp(f"Hero wins: {wins / total:.2f} ({wins} of {total})")
+    rp(f"Ties:      {ties / total:.2f} ({ties} of {total})")
+    rp(f"Losses:    {(total - wins - ties) / total:.4f} ({total - wins - ties} of {total})")
+    prob = 100 * wins / total
+    # print(f"{prob=}")
+    rp(f"Odds: {round((100 - prob) / prob, 2) if prob else '∞'}:1")

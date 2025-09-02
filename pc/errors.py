@@ -20,7 +20,7 @@ if DEBUG:
 class Error(Exception):
     """Custom exception with additional attributes for UI-related error handling."""
     
-    def __init__(self, message, code=None, title="ERROR!", icon=str(BASEDIR / "img/stop.png"), buttons=None, **kwargs):
+    def __init__(self, message=None, code=None, title="ERROR!", icon=str(BASEDIR / "img/stop.png"), buttons=None, **kwargs):
         super().__init__(message)
         self.code = code  # Optional error code
         self.title = title  # Title of the error message
